@@ -9,7 +9,6 @@ import { dtoCreatePokemon } from './dto/dtoCreatePokemon';
 export class PokemonService {
   constructor(
     @InjectModel(Pokemon.name) private pokemonModel: Model<PokemonDocument>,
-    @InjectConnection() private connection: Connection,
   ) {}
 
   createNewPokemon(dtoCreatePokemon: dtoCreatePokemon) {
@@ -40,5 +39,9 @@ export class PokemonService {
   async getAllPokemon(): Promise<Pokemon[]> {
     const allPokemon= this.pokemonModel.find().exec();
     return allPokemon;
+  }
+
+  deletePokemon(id: string){
+    return this.pokemonModel.deleteOne({id: String(id)});
   }
 }

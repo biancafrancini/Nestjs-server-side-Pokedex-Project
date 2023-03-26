@@ -6,6 +6,9 @@ export type PokemonDocument = HydratedDocument<Pokemon>;
 @Schema()
 export class Pokemon {
   @Prop()
+  id: number; 
+
+  @Prop()
   name: string;
 
   @Prop()

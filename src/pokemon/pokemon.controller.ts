@@ -16,4 +16,9 @@ export class PokemonController {
   getData(@Param('name') name: string): Promise<Pokemon> {
     return this.pokemonService.getPokemon(name);
   }
+
+  @Delete(':id')
+  deleteData(@Param('id') id: string){
+    return this.pokemonService.deletePokemon(id);
+  }
 }
