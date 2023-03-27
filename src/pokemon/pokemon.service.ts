@@ -17,7 +17,7 @@ export class PokemonService {
    */
   createNewPokemon(dtoCreatePokemon: dtoCreatePokemon) {
   const createdPokemon = new this.pokemonModel(dtoCreatePokemon);
-  createdPokemon.save();
+  return createdPokemon.save();
   //console.log(createdPokemon.name);
   }
 
