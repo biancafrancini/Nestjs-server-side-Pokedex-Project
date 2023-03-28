@@ -4,9 +4,10 @@ import { JoiPipeModule } from 'nestjs-joi';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PokemonModule } from './pokemon/pokemon.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [PokemonModule, JoiPipeModule, MongooseModule.forRoot("mongodb+srv://Bianca999:vOTLo8rBM52RxpTt@cluster0.qzeh71x.mongodb.net/test")],
+  imports: [PokemonModule, JoiPipeModule, ConfigModule.forRoot(), MongooseModule.forRoot(process.env.URL_DB)],
   controllers: [AppController],
   providers: [AppService],
 })
